@@ -7,11 +7,59 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Site JSP</title>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/login.css" rel="stylesheet">
 <style type="text/css">
 @import
 	url(http://fonts.googleapis.com/earlyaccess/nanumbrushscript.css);
+
+@import url(http://fonts.googleapis.com/earlyaccess/nanumpenscript.css);
+
+#header_div1 {
+	width: 240px;
+	margin: 62px auto;
+	font-family: 'Nanum Brush Script', serif;
+	font-size: 100px;
+	text-decoration: none;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+#login {
+	font-family: 'Nanum Pen Script', serif;
+	font-size: 50px;
+	border: solid 1px #dadada;
+}
+
+#header_div1>a:HOVER {
+	text-decoration: none;
+}
+
+#idpw_div {
+	width: 240px;
+	margin: 62px auto;
+}
+
+#login_bt {
+	padding: 10px;
+}
+
+.div_input {
+	background-color: white;
+	margin-bottom: 14px;
+	padding: 10px 35px 10px 15px;
+	width: 408px;
+	height: 29px;
+}
+
+#span_check {
+	color: red;
+	font-size: 20px;
+	margin-left: 30px;
+}
 
 h3 {
 	padding: 50px 0 10px;
@@ -76,11 +124,38 @@ ul, menu, dir {
 }
 </style>
 <script src="js/bootstrap.min.js"></script>
-</head>
+<script src="js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+	$(document).on("click", ".float", function() {
+
+		$("#firminsert").submit();
+
+	});
+
+	/* function checked() {
+		firminsert.submit();
+	} 자바스크립트로 submit 시킨것*/
+</script>
+<script type="text/javaScript">
+	window.onload = function() {
+		var code = $
+		{
+			code
+		}
+		;
+
+		if (code == "2") {
+			document.getElementById('span_check').style.display = "block";
+		}
+		;
+	};
+</script>
+
+</head> 
 <body>
 	<div id="header_div1">
 		<!--로고를 가운데로 오게하기위해  -->
-		<a href="#">지블리</a>
+		<a href="IndexAction">지블리</a>
 	</div>
 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
@@ -94,6 +169,7 @@ ul, menu, dir {
 				</button>
 			</div>
 
+							
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse"
 				id="bs-example-navbar-collapse-1">
@@ -101,7 +177,8 @@ ul, menu, dir {
 					<c:choose>
 						<c:when test="${empty sessionScope.loginUser}">
 							<li><a href="insert.jsp">회원가입</a></li>
-							<li class="active"><a href="login.jsp">로그인 <span
+							<li class="active"><a onclick="document.getElementById('id01').style.display='block'" 
+							class="w3-button w3-black">로그인 <span
 									class="sr-only">(current)</span></a></li>
 							<li><a href="insert.jsp">베스트메뉴</a></li>
 						</c:when>
@@ -152,6 +229,52 @@ ul, menu, dir {
 		</div>
 		<!-- /.container-fluid -->
 	</nav>
+	
+	
+	
+	
+<div class="w3-container">
+
+  <div id="id01" class="w3-modal">
+    <div class="w3-modal-content">
+      <div class="w3-container">
+        <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+	<div id="login" class="login">
+		<div class="heading">
+			Login♥
+			<form action="LoginAction" id="firminsert" name="firminsert"
+				method="post">
+
+				<div class="input-group input-group-lg">
+					<span class="input-group-addon"><i class="fa fa-user"></i></span> <input
+						type="text" name="id" class="form-control"
+						placeholder="Username or email">
+				</div>
+
+				<div class="input-group input-group-lg">
+					<span class="input-group-addon"><i class="fa fa-lock"></i></span> <input
+						type="password" name="pw" class="form-control"
+						placeholder="Password">
+				</div>
+			</form>
+			<span id="span_check" style="display: none">아이디와 비밀번호를 확인해
+				주세요.</span>
+
+			<div id="login_bt">
+				<a herf="#"><img src="img/login.PNG" class="float" alt="Fl"
+					width="200" height="45"></a>
+			</div>
+
+		</div>
+	</div>
+      </div>
+    </div>
+  </div>
+</div>
+	
+	
+
+	
 
 </body>
 </html>

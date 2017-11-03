@@ -21,7 +21,7 @@ h2 {
 	margin: 0px;
 }
 
-img {
+.img2 {
 	width: 225px;
 	height: 225px;
 }
@@ -58,7 +58,7 @@ a {
 		<div class="div_wrap">
 		<c:forEach items="${bestlist}" var="bpDto">
 			<div class="pdt_item">
-				<a href="detail.jsp?img=${bpDto.p_img} &name=${bpDto.p_name} &price=${bpDto.p_price2}"> <img src="img/${bpDto.p_img}" alt="베스트상품">
+				<a href="detail.jsp?img=${bpDto.p_img} &name=${bpDto.p_name} &price=${bpDto.p_price2}"> <img class="img2" src="img/${bpDto.p_img}" alt="베스트상품">
 					<div class="wrap info">
 						<span>${bpDto.p_name}</span> 
 						<span> 
@@ -76,8 +76,8 @@ a {
 	<div class="item_list2">
 		<h2>New Item</h2>
 		<hr>
-		<br><img src="img/C01.jpg" alt="라코스테후드티"> <img src="img/C02.jpg"
-			alt="빈폴카라티"> <img src="img/C03.jpg" alt="꼼데가디건"> <img
+		<br><img  class="img2" src="img/C01.jpg" alt="라코스테후드티"> <img class="img2"  src="img/C02.jpg"
+			alt="빈폴카라티"> <img class="img2"  src="img/C03.jpg" alt="꼼데가디건"> <img class="img2" 
 			src="img/C04.jpg" alt="타미힐피거셔츠">
 			
 	</div>
